@@ -1,5 +1,5 @@
 package sample;
-
+/*
 import javafx.application.______1_____;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -63,3 +63,4 @@ public class DollarsToPounds extends _______4_______ {
         return dollars*_______36________;
     }
 }
+*/

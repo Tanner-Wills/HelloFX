@@ -16,9 +16,14 @@ public class HelloFX extends Application {
 
         Button btn = new Button();
         btn.setText("Print Hello World");
-        btn.setOnAction(new CustomEventHandler());
+        btn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("Hello World!");
+            }
+            });
 
-        StackPane root = new StackPane();
+                StackPane root = new StackPane();
         root.getChildren().add(btn);
 
         Scene scene = new Scene(root,300,300);
@@ -27,9 +32,9 @@ public class HelloFX extends Application {
 
     }
 
-    private class CustomEventHandler implements EventHandler<ActionEvent>{
-        public void handle(ActionEvent event){
-            System.out.println("Hello World!");
-        }
+    //private class CustomEventHandler implements EventHandler<ActionEvent>{
+        //public void handle(ActionEvent event){
+           // System.out.println("Hello World!");
+        //}
     }
-}
+
