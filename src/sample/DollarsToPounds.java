@@ -1,5 +1,4 @@
 package sample;
-
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
@@ -65,4 +64,5 @@ public class DollarsToPounds extends Application {
         return dollars*EXCHANGE_RATE;
     }
 }
+
 
