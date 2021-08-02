@@ -1,66 +1,68 @@
 package sample;
-/*
-import javafx.application.______1_____;
+
+import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.______2_______;
+import javafx.scene.layout.VBox;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout._____3______;
+import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-public class DollarsToPounds extends _______4_______ {
+public class DollarsToPounds extends Application {
 
     final static double EXCHANGE_RATE = 0.81;
 
-    public void _____5____(_____6_____ stage) {
+    public void start(Stage stage) {
 
-        Label valueLbl = new Label(____7_____);
+        Label valueLbl = new Label("Input Value: $");
 
         Label poundsLbl = new Label();
 
-        ______8______ dollarsTxt = new ____9______();
+        TextField dollarsTxt = new TextField();
 
-        Button ____10_____ = new Button();
+        Button exchangeBtn = new Button();
 
-        exchangeBtn.____11____(______12______);
+        exchangeBtn.setText("Exchange");
 
-        _______13______(____14_____ {
-            String dollarsStr = ______15______.toString();
+        exchangeBtn.setOnAction(actionEvent ->  {
+            String dollarsStr = dollarsTxt.getText().toString();
             try {
                 double dollars = Double.parseDouble(dollarsStr);
-                double pounds = ____16_____(dollars);
+                double pounds = exchange(dollars);
                 poundsLbl.setText(String.format("%.2f", pounds));
             } catch (NumberFormatException e) {
-                ___17___ a = new ____18____(___19_____);
-                _____20______("Error");
+                Alert a = new Alert(Alert.AlertType.ERROR);
+                a.setTitle("Error");
                 a.setHeaderText("Invalid Dollar Amount");
                 a.setContentText("Please only use digits.");
                 a.showAndWait();
             }
         });
 
-        ___21___ input = new _____22_____();
+        HBox input = new HBox();
         input.setAlignment(Pos.CENTER);
-        _______23_____(valueLbl, _____24_____);
+        input.getChildren().addAll(valueLbl, dollarsTxt);
 
-        _____25_____ root = new ____26____();
+        VBox root = new VBox();
         root.setAlignment(Pos.CENTER);
         root.setSpacing(8);
-        root._____27____(_______28________, ________29________, ________30_______);
+        root.getChildren().addAll(input, exchangeBtn, poundsLbl);
 
-        _____31____ scene = new _____32_____(____33_____, 400, 400);
-        _______34____("Dollars to Pounds");
-        stage.setScene(____35___);
+        Scene scene = new Scene(root, 400, 400);
+        stage.setTitle("Dollars to Pounds");
+        stage.setScene(scene);
         stage.show();
 
     }
 
     private double exchange(double dollars) {
-        return dollars*_______36________;
+        return dollars*EXCHANGE_RATE;
     }
 }
-*/
+
